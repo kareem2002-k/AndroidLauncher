@@ -6,14 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/test" />
+
+    <!-- Clock TextView -->
+    <TextView
+        android:id="@+id/clockTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#EDEDED"
+        android:textSize="60sp" />
+
+    <!-- RecyclerView for App Icons -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clockTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:clipToPadding="false"
+        android:paddingLeft="16dp"
         android:scrollbars="vertical" />
 
-
-
 </RelativeLayout>
-
