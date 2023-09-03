@@ -18,6 +18,17 @@ import java.util.Set;
 import android.util.Log; // Import Log
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+
+import android.view.View;
+import android.widget.TextView;
+
+import android.os.Handler;
+
+
 
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -30,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private List<AppInfo> appInfoList;
     private RecyclerView recyclerView;
     private AppAdapter appAdapter;
+
+    private TextView clockTextView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +101,37 @@ public class MainActivity extends AppCompatActivity {
         }
 
         appAdapter.notifyDataSetChanged();
+
+
+
+
+
+        // Initialize the clock TextView
+        clockTextView = findViewById(R.id.clockTextView);
+
+        // Create a handler to update the clock
+        final Handler handler = new Handler();
+
+        // Create a runnable to update the clock
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                // Get the current time
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", new Locale("ar"));
+                String currentTime = sdf.format(calendar.getTime());
+
+                // Update the clock TextView with Arabic numerals
+                clockTextView.setText(currentTime);
+
+                // Call the runnable again after 1 second
+                handler.postDelayed(this, 1000);
+            }
+        };
+
+        // Start the clock by posting the runnable
+        handler.post(runnable);
+
     }
 
     private void launchApp(AppInfo appInfo) {
@@ -97,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "App not found", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
 }
