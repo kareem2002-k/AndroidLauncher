@@ -22,11 +22,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import android.view.WindowManager;
 
 import android.view.View;
 import android.widget.TextView;
 
 import android.os.Handler;
+
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Build;
+
 
 
 
@@ -48,6 +54,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        // Enable immersive mode (hide status bar and navigation bar)
+        int flags = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        getWindow().getDecorView().setSystemUiVisibility(flags);
+
+        // Disable swipe-down gesture to show status bar
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
+
+
+
+        // Check if screen pinning is supported
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+            if (activityManager != null) {
+                if (!activityManager.isInLockTaskMode()) {
+                    startLockTask(); // Start screen pinning
+                }
+            }
+        }
+
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -89,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             String k = info.activityInfo.packageName;
             Log.d("AppDebug", "Package Name: " + k); // Log package name for debugging
 
-            // Check if the app is allowed (system app)
+            // Check if the app is allowed (system app) a
             if (allowedSystemApps.contains(packageName)) {
                 AppInfo appInfo = new AppInfo();
                 appInfo.setLabel(info.loadLabel(packageManager).toString());
@@ -132,7 +161,23 @@ public class MainActivity extends AppCompatActivity {
         // Start the clock by posting the runnable
         handler.post(runnable);
 
+
+
     }
+
+
+
+    // Check if the app is in lock task mode
+    private boolean isInLockTaskMode() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+            return activityManager != null && activityManager.isInLockTaskMode();
+        }
+        return false;
+    }
+
+
+
 
     private void launchApp(AppInfo appInfo) {
         PackageManager packageManager = getPackageManager();
