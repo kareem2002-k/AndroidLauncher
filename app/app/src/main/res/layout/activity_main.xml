@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <!-- Background Image -->
     <ImageView
         android:id="@+id/imageView"
@@ -14,6 +15,8 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/test" />
+
+    <include layout="@layout/status_bar" />
 
     <!-- Clock TextView -->
     <TextView
