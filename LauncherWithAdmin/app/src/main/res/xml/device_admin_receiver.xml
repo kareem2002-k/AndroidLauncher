@@ -1,0 +1,12 @@
+<device-admin>
+    <uses-policies>
+        <!-- Disable access to settings -->
+
+        <!-- Disable status bar expansion -->
+
+        <limit-password/>
+        <force-lock/>
+        <wipe-data/>
+
+    </uses-policies>
+</device-admin>
