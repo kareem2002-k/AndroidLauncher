@@ -16,9 +16,9 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/test" />
 
+    <!-- Clock TextView -->
     <include layout="@layout/status_bar" />
 
-    <!-- Clock TextView -->
     <TextView
         android:id="@+id/clockTextView"
         android:layout_width="wrap_content"

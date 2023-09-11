@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Launcher</string>
     <string name="accessibility_service_description">Your accessibility service description here</string>
+    <string name="device_admin">Your Device Admin Label</string>
+
 
 </resources>

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import android.widget.ProgressBar;
 import java.util.List;
 import java.util.Set;
 import android.os.Handler;
@@ -28,6 +29,10 @@ import android.os.BatteryManager;
 import android.content.BroadcastReceiver;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.app.admin.DeviceAdminReceiver;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView networkTextView;
     private TextView timeTextView;
 
+    private  ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        ComponentName adminReceiver = new ComponentName(this, MyDeviceAdminReceiver.class);
+
+
+
+        // Disable status bar expansion (requires appropriate device admin privileges)
+        dpm.setStatusBarDisabled(adminReceiver, true);
 
 
 
@@ -56,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         batteryTextView = findViewById(R.id.batteryTextView);
         networkTextView = findViewById(R.id.networkTextView);
         timeTextView = findViewById(R.id.timeTextView);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3)); // 4 columns, adjust as needed
@@ -79,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         // Define a set of package names for allowed system apps
         Set<String> allowedSystemApps = new HashSet<>(Arrays.asList(
                 "com.android.camera",    // Camera app
-                "com.android.settings",
+
                 "com.android.camera2",
                 "com.google.android.apps.maps",
                 "com.google.android.apps.photos",
@@ -175,7 +191,10 @@ public class MainActivity extends AppCompatActivity {
 
 
             // Update the battery TextView
-            batteryTextView.setText("Battery: " + batteryPercentage + "%");
+            batteryTextView.setText(batteryPercentage + "%");
+
+
+
         }
     }
 

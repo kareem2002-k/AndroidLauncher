@@ -19,6 +19,9 @@
     <uses-permission android:name="android.permission.LAUNCHER" />
 
 
+    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
+
+
 
 
     <application
@@ -46,6 +49,13 @@
         </activity>
 
 
+        <receiver
+            android:name=".MyDeviceAdminReceiver"
+            android:label="@string/device_admin">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_receiver" />
+        </receiver>
 
     </application>
 
