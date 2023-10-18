@@ -62,4 +62,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
             });
         }
     }
+
+    public void setData(List<AppInfo> data) {
+        appInfoList.clear();
+        appInfoList.addAll(data);
+        notifyDataSetChanged();
+    }
 }

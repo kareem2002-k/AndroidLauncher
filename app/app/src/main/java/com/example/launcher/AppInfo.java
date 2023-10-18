@@ -7,7 +7,15 @@ public class AppInfo {
     private String packageName;
     private Drawable icon;
 
-    // Constructors, getters, and setters
+    public AppInfo(String label, String packageName, Drawable icon) {
+        this.label = label;
+        this.packageName = packageName;
+        this.icon = icon;
+    }
+
+    public  AppInfo(){
+
+    };
 
     public String getLabel() {
         return label;
@@ -32,4 +40,6 @@ public class AppInfo {
     public void setIcon(Drawable icon) {
         this.icon = icon;
     }
+
+
 }

@@ -1,9 +1,8 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#000000"
+    android:background="#514E4E"
     android:padding="8dp">
 
     <!-- Battery Status -->
@@ -11,14 +10,14 @@
         android:id="@+id/batteryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Battery: 100%"
-        android:textColor="#FFFFFF"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Battery: 100%"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside" />
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Progress Bar -->
     <ProgressBar
@@ -26,34 +25,33 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="16dp"
+        android:indeterminate="false"
         android:max="100"
         android:progress="50"
         android:progressTint="#00FF00"
-        android:indeterminate="false"
-        app:layout_constraintStart_toEndOf="@id/batteryTextView"
-        app:layout_constraintTop_toTopOf="@id/batteryTextView"
         app:layout_constraintBottom_toBottomOf="@id/batteryTextView"
-         />
+        app:layout_constraintStart_toEndOf="@id/batteryTextView"
+        app:layout_constraintTop_toTopOf="@id/batteryTextView" />
 
     <!-- Network Status -->
     <TextView
         android:id="@+id/networkTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="Network: Wi-Fi"
         android:textColor="#FFFFFF"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Time -->
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:text="12:00 AM"
         android:textColor="#FFFFFF"
-        android:layout_alignParentEnd="true"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

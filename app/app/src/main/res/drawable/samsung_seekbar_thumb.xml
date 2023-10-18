@@ -1,0 +1,86 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:id="@android:id/background">
+                <shape>
+                    <solid android:color="#2196F3" /> <!-- Change the color as needed -->
+                    <size android:width="24dp" android:height="24dp" />
+                </shape>
+            </item>
+            <item android:id="@android:id/secondaryProgress">
+                <scale android:scaleWidth="50%">
+                    <selector>
+                        <item>
+                            <layer-list>
+                                <item>
+                                    <shape>
+                                        <solid android:color="#FFFFFF" />
+                                        <size android:width="16dp" android:height="16dp" />
+                                    </shape>
+                                </item>
+                            </layer-list>
+                        </item>
+                    </selector>
+                </scale>
+            </item>
+            <item android:id="@android:id/progress">
+                <scale android:scaleWidth="50%">
+                    <selector>
+                        <item>
+                            <layer-list>
+                                <item>
+                                    <shape>
+                                        <solid android:color="#FFFFFF" />
+                                        <size android:width="16dp" android:height="16dp" />
+                                    </shape>
+                                </item>
+                            </layer-list>
+                        </item>
+                    </selector>
+                </scale>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:id="@android:id/background">
+                <shape>
+                    <solid android:color="#B0B0B0" /> <!-- Change the color as needed -->
+                    <size android:width="24dp" android:height="24dp" />
+                </shape>
+            </item>
+            <item android:id="@android:id/secondaryProgress">
+                <scale android:scaleWidth="50%">
+                    <selector>
+                        <item>
+                            <layer-list>
+                                <item>
+                                    <shape>
+                                        <solid android:color="#FFFFFF" />
+                                        <size android:width="16dp" android:height="16dp" />
+                                    </shape>
+                                </item>
+                            </layer-list>
+                        </item>
+                    </selector>
+                </scale>
+            </item>
+            <item android:id="@android:id/progress">
+                <scale android:scaleWidth="50%">
+                    <selector>
+                        <item>
+                            <layer-list>
+                                <item>
+                                    <shape>
+                                        <solid android:color="#FFFFFF" />
+                                        <size android:width="16dp" android:height="16dp" />
+                                    </shape>
+                                </item>
+                            </layer-list>
+                        </item>
+                    </selector>
+                </scale>
+            </item>
+        </layer-list>
+    </item>
+</selector>
