@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package thepack;
+
+option go_package = "/";
+
+service PackageService {
+    rpc GetPackageNames (PackageRequest) returns (PackageResponse);
+}
+
+message PackageRequest {
+    string userRole = 1;
+}
+
+message PackageResponse {
+    repeated string packagesNames = 1;
+}
