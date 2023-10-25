@@ -26,7 +26,7 @@ func (s *serv) GetPackageNames(ctx context.Context, in *pb.PackageRequest) (*pb.
 }
 
 func main() {
-	lis, err := net.Listen("tcp", ":50051") // Define your server address and port
+	lis, err := net.Listen("tcp", ":8000") // Define your server address and port
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}
