@@ -3,6 +3,7 @@ syntax = "proto3";
 package thepack;
 
 option go_package = "/";
+option java_package = "com.example.launcher";
 
 service PackageService {
     rpc GetPackageNames (PackageRequest) returns (PackageResponse);
