@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.launcher"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.launcher"
@@ -33,6 +33,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -42,7 +43,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("com.google.protobuf:protobuf-java:3.18.1")
+    implementation ("io.grpc:grpc-okhttp:1.59.0")
+    implementation ("io.grpc:grpc-protobuf-lite:1.59.0")
+    implementation ("io.grpc:grpc-stub:1.59.0")
 
 
 }

@@ -1,9 +1,13 @@
 syntax = "proto3";
 
+
+option java_multiple_files = true;
+option java_package = "com.example.launcher";
+option java_outer_classname = "LauncherProto";
+
 package thepack;
 
 option go_package = "/";
-option java_package = "com.example.launcher";
 
 service PackageService {
     rpc GetPackageNames (PackageRequest) returns (PackageResponse);
