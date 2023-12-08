@@ -14,7 +14,6 @@ public class AppInfo {
     }
 
     public  AppInfo(){
-
     };
 
     public String getLabel() {
